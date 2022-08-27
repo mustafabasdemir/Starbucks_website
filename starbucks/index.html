@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>STARBUCKS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onclick="">
+    <section>
+        <div class="circle"></div> <!--büyük resimlerin arka planında ki renkli yuvarlak alan-->
+        <header>
+            <a href="#" ><img src="logo.png" class="logo"></a>
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#">Menü</a></li>
+                <li><a href="#">Yeni Şeyler</a></li>
+                <li><a href="#">İletişim</a></li>
+            </ul>
+        </header>
+        <div class="content">
+                <div class="textBox">
+                    <h2>bu sadece kahve değil<br>bu <span>starbucks</span></h2> <!-- <br> etiketi bir alt satıra geçmek için kulknılır-->
+                    <p id="change">Yaza keyif katan, baristalarımız tarafından özenle hazırlanan yeni cool lezzetlerimizle tanış! 😎 Banana Split Frappuccino® Blended Beverage ile çikolata ve muzun enfes birleşimi, Passionfruit Raspberry Frappuccino® Blended  Beverage ile çarkıfelek meyvesi ve ahududunun muhteşem uyumu mağazalarımızda seni bekliyor! 😋🥳🏃🏻‍♀️</p>
+                    <a href="#">Daha fazla bilgi edin</a>
+                </div>
+                <div class="imgBox">
+                    <img src="img1.png" class="starbucks">
+                </div>
+        </div>
+        <ul class="thumb"> <!-- küçük resimler asağıda yazılan js fonksiyonlarıda dahil edildi-->
+            <li><img src="thumb1.png" onclick="tiklaDegis(),imgSlider('img1.png');changeCircleColor('#017143')"></li>
+            <li><img src="thumb2.png" onclick="tiklaDegis(),imgSlider('img2.png');changeCircleColor('#eb7495')"></li>
+            <li><img src="thumb3.png" onclick="tiklaDegis(),imgSlider('img3.png');changeCircleColor('#d752b1')"></li>
+            <li><img src="thumb4.png" onclick="tiklaDegis(),imgSlider('img4.png');changeCircleColor('#E3B578')"></li>
+            <li><img src="thumb5.png" onclick="tiklaDegis(),imgSlider('img5.png');changeCircleColor('#16090C')"></li>
+            <!--onclick özelliği ile her tıklamada aşağıda js ile yazmış olduğumuz fonksiyonlar çalışacak -->
+        </ul>                
+        <ul class="icons">
+            <li><a href="#"><img src="facebook.png"></a></li>
+            <li><a href="#"><img src="twitter.png"></a></li>
+            <li><a href="https://www.instagram.com/mustafa_basdemirr/"><img src="instagram.png"></a></li>
+            <li><a href="https://www.linkedin.com/in/mustafa-basdemir/"><img src="linkedin.png"></a></li>
+            <li><a href="https://github.com/mustafabasdemir"><img src="github.png"></a></li>
+        </ul>
+    </section>
+
+    <script type="text/javascript">
+        function imgSlider(anything)
+        { /* secilen küçük resimlerin yuvarlak alana geçmesi için yazdığım kod 
+            yukarıda starbucks classına sahip img etiketine seçilen resim gelecek */
+            document.querySelector('.starbucks').src=anything;
+        }
+
+        function changeCircleColor(color)
+        {   // büyük resimlerin arka planındaki yuvarlak alanın rengini değiştirmek için yazdığım kod 
+            const circle = document.querySelector('.circle');  
+            circle.style.background=color;
+        }
+
+         // küçük resimlere tıklayınca yukarıda yer alan change id ye sahip paragraf yazısının değişmesi için yazdığım javascript kodu
+
+        var not_index = 0;
+        var notes = [
+        "Egzotik bölgelerden nadir kahve çekirdeklerini özenle topladık ve Milano Roastry’de ustalıkla kavurduk.😋😊 Her fincan kahve ayrı bir hikaye demek ve belki de bu hikayenin bir daha tekrarı yok! ☕🥛",
+        "Mağazalarımız kahve severler için her yerde uğrak noktası haline geldi. Misafirlerimiz Starbucks'ı tercih ediyorlar çünkü samimi hizmet, sıcak bir atmosfer ve her zaman ustalıkla kavrulmuş ve kıvamında hazırlanmış bir fincan kahveye güvenebileceklerini biliyorlar. 👌☕ ",
+        "Tutkumuz, sadece kahvemizi değil, onu tamamlayacak deneyimi de en iyi şekilde sunabilmektir. 😍🥰 Starbucks Deneyiminizi tamamlayacak kahveleriniz ile uyumlu yiyeceklerden, mağaza ortamını tamamlayan müziklerimize kadar herşeyi özel olarak seçiyoruz. Misafirlerimiz Starbucks'a sohbet etmek, arkadaşları ile buluşmak ya da çalışmak için gelirler. 🤩"
+        ];
+        function tiklaDegis() {
+            ++not_index;  // her tıklamada index degeri artacak ve notes dizisindeki metin paragraf kısmına geçeçecek 
+            if (not_index >= notes.length) {
+                not_index = 0;
+            }
+            document.getElementById("change").innerHTML = notes[not_index];
+        }
+
+    </script>
+</body>
+</html>
